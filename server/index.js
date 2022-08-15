@@ -5,18 +5,22 @@ app.use(cors());
 app.use(express.json());
 
 const positiveThoughts = [
-    { id: 1, set_name: "1PT"},
-    { id: 2, set_name: "2PT"},
-    { id: 3, set_name: "3PT"},
+    { id: 1, set_name: "It's all going to turn out fine."},
+    { id: 2, set_name: "I will continue to work towards my goals."},
+    { id: 3, set_name: "I know my future is going to be great."},
 ]
-let baseID = 4
+let base_id = 4
 
 const { getCompliment, getFortune } = require('./controller')
+
+const controller = require('./controller')
+
+console.log(controller.apple)
 
 app.get("/api/compliment", getCompliment);
 app.get("/api/fortune", getFortune);
 
-app.post("/api/positive", (request, response) => {
+app.post("/api/positive", (request, response) => { 
     let new_set = {//added
         id: base_id,
         set_name: request.body.set_name
@@ -35,4 +39,4 @@ app.delete("/api/positive/:set_id", (request, response) => {
 });
 
 
-app.listen(4000, () => console.log("Server running on 4000"));
+app.listen(4004, () => console.log("Server running on 4004"));

@@ -15,7 +15,8 @@ module.exports = {
         let randomIndex = Math.floor(Math.random() * fortunes.length);
         let randomFortunes = fortunes[randomIndex];
         res.status(200).send(randomFortunes);
-    } 
+    }
+
     
 
 }
